@@ -81,6 +81,19 @@ kibana_config_js:
     - context:
        kibana_port: {{ kibana_port }}
 
+logstash_service:
+  file.managed:
+    - name: /etc/logstash/conf.d/rsyslog.conf
+    - source: salt://kibana/logstash_conf
+    - mode: 644
+  service.running:
+    - name: logstash
+    - enable: True
+    - watch:
+      - file: logstash_service
+    - require:
+      - file: logstash_service
+
 elastic_htpasswd:
   file.managed:
     - name: {{ elastic_htpasswd_file }}
