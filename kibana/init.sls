@@ -40,7 +40,7 @@ elastic_repos_key:
       - file: elastic_repos_key
 
 {% for soft, repo in {
-  'elasticsearch': 'http://packages.elasticsearch.org/elasticsearch/0.90/debian',
+  'elasticsearch': 'http://packages.elasticsearch.org/elasticsearch/1.2/debian',
   'logstash': 'http://packages.elasticsearch.org/logstash/1.4/debian',
   }.iteritems() %}
 {{ soft }}_repo:
