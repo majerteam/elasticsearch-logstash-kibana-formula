@@ -53,6 +53,7 @@ elastic_repos_key:
 {{ soft }}_soft:
   pkg.installed:
     - name: {{ soft }}
+    - refresh: True
     - require:
       - file: {{ soft }}_repo
 
